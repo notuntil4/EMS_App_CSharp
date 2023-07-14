@@ -69,13 +69,24 @@ namespace EMS {
         public List<Employee> getEmployees() {
             return employees;
         }
+
+        public Employee getEmployeeById(int id) {
+            
+            for(int i = 0; i < employees.Count; i++) {
+                if( employees[i].id == id) {
+                    return employees[i];
+                }
+            }
+
+            return null;
+        }
     }
 
 
 
     class Program {
 
-        EmployeeDao employeeDao = new EmployeeDao();
+        static EmployeeDao employeeDao = new EmployeeDao();
 
         static void mainMenu() {
 
@@ -97,12 +108,16 @@ namespace EMS {
                         viewEmployees();
                         break;
                     case 2:
+                        viewEmployeeById();
                         break;
                     case 3:
+                        addEmployee();
                         break;
                     case 4:
+                        deleteEmployee();
                         break;
                     case 5:
+                        updateEmployee();
                         break;
                     case 6:
                         exit = true;
@@ -125,8 +140,24 @@ namespace EMS {
 
         }
 
+        static void viewEmployeeById() {
+
+        }
+
+        static void addEmployee() {
+
+        }
+
+        static void deleteEmployee() {
+
+        }
+
+        static void updateEmployee() {
+
+        }
+
         static void Main(string[] args) {
-            employeeDao = new EmployeeDao();
+            
 
             Console.WriteLine("Welcome to the EMS App!");
 
