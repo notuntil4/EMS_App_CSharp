@@ -6,7 +6,7 @@ namespace EMS {
 
     class Employee {
 
-        private int idCounter = 0;
+        private int idCounter = 1;
 
         private int id;
         public int Id {
@@ -73,7 +73,7 @@ namespace EMS {
         public Employee getEmployeeById(int id) {
             
             for(int i = 0; i < employees.Count; i++) {
-                if( employees[i].id == id) {
+                if( employees[i].Id == id) {
                     return employees[i];
                 }
             }
@@ -142,10 +142,36 @@ namespace EMS {
 
         static void viewEmployeeById() {
 
+            Console.WriteLine("\nEnter the id of the employee you want to view:");
+        
+            int id = Convert.ToInt32(Console.ReadLine());
+
+            Employee found = employeeDao.getEmployeeById(id);  
+
+            if(found == null) {
+                Console.WriteLine("\nCould not find employee with id = " + id);
+            }
+            else {
+                Console.WriteLine(found.print());
+            }
+
         }
 
         static void addEmployee() {
 
+            Console.WriteLine("\nEnter the first name: ");
+            string firstName = Console.ReadLine();
+
+            Console.WriteLine("\nEnter the last name: ");
+            string lastName = Console.ReadLine();
+
+            Console.WriteLine("\nEnter the department: ");
+            string department = Console.ReadLine();
+
+            Console.WriteLine("\nEnter the salary: ");
+            int salary = Convert.ToInt32(Console.ReadLine());
+
+            
         }
 
         static void deleteEmployee() {
