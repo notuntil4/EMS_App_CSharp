@@ -119,13 +119,15 @@ namespace EMS {
 
             Console.WriteLine("\nHere are all the Employees:\n");
 
-            foreach (Employee employee in employeeDao.getEmployees() ) {
-                Console.WriteLine(employee.print());
+            foreach(Employee e in employeeDao.getEmployees()) {
+                Console.WriteLine( e.print() );
             }
 
         }
 
         static void Main(string[] args) {
+            employeeDao = new EmployeeDao();
+
             Console.WriteLine("Welcome to the EMS App!");
 
             mainMenu();
